@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListItem } from '../todo-list-item.model';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,32 +9,14 @@ import { TodoListItem } from '../todo-list-item.model';
 })
 export class TodoListComponent implements OnInit {
   // TodoListItem говорит в каком формате будут данные
-  public todoItems: TodoListItem[] = [
-    {
-      id: 0,
-      title: 'Install ng-cli'
-    },
-    {
-      id: 1,
-      title: 'Create github repo'
-    },
-    {
-      id: 2,
-      title: 'Install dependencies'
-    },
-    {
-      id: 3,
-      title: 'Build basic app'
-    },
-    {
-      id: 4,
-      title: 'Commit changes'
-    }
-  ];
+  public todoItems: TodoListItem[] = [];
 
-  constructor() { }
+  // Говорим конструктору сходить на TodoService в сервисах
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    // Теперь можем достать наши данные из сервиса
+    this.todoItems = this.todoService.getTodoItems();
   }
 
 }
