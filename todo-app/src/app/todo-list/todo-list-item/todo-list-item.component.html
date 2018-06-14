@@ -1,11 +1,26 @@
-<div class="alert alert-secondary">
-  <div class="row">
-    <div class="col-10">{{todoItem.title}}</div>
-    <div class="col-2">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-sm mr-1 btn-secondary">Done</button>
-        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
+<div class="alert alert-secondary pr-0">
+  <div class="row pr-3">
+    <div class="col-11">
+      <div class="row">
+        <div class="col-8">
+          <span class="h3 font-weight-bold">{{todoItem.title}}</span>
+        </div>
+        <div class="col-2">
+          <span class="h5 font-weight-normal">{{todoItem.duration}} minutes</span>
+        </div>
+        <div class="col-2">
+          <span class="h5 font-weight-normal">{{todoItem.creationDate}}</span>
+        </div>
       </div>
+      <div class="row">
+        <div class="col-12">
+          <span class="h5 font-weight-light">{{todoItem.description}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+        <button type="button" class="btn btn-sm btn-secondary btn-block">Done</button>
+        <button type="button" class="btn btn-sm btn-danger btn-block">Cancel</button>
     </div>
   </div>
 </div>

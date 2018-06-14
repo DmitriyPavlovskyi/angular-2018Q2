@@ -1,7 +1,12 @@
 <nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">Todo-app</span>
-    <span class="navbar-text">Logged as Guest</span>
-    <button class="btn btn-sm btn-light">Log off</button>
+  <div>
+    <span class="navbar-brand mb-0">
+      <img src="./assets/App-logo.svg" class="app-logo" alt="">
+      Todo app
+    </span>
+  </div>
+  <div>
+    <span class="navbar-text pr-3">Logged as {{userData.firstName}}</span>
+    <button class="btn btn-sm btn-outline-light">Log off</button>
+  </div>
 </nav>
-<app-breadcrumbs class="navbar navbar-brand"></app-breadcrumbs>
-<app-toolbox></app-toolbox>
