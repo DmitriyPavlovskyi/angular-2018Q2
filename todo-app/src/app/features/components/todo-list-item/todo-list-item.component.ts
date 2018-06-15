@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TodoListItem } from '../todo-list-item.model';
+import { TodoListItem } from '../../../shared/models/todo-list-item.model';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -7,10 +7,9 @@ import { TodoListItem } from '../todo-list-item.model';
   styleUrls: ['./todo-list-item.component.css']
 })
 export class TodoListItemComponent implements OnInit {
-  @Input() public todoItem: TodoListItem
+@Input() course: TodoListItem;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

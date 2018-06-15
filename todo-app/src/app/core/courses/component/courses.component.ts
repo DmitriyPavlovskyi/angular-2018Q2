@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../courses.service';
+import { TodoListItem } from '../../../shared/models/todo-list-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+  courses: TodoListItem[];
 
-  constructor() { }
+  constructor(public services: UserService) { }
 
   ngOnInit() {
+    this.courses = this.services.getTodoItems();
   }
 
 }

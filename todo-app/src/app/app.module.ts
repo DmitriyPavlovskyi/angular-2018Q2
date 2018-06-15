@@ -5,9 +5,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router'
 import { ROUTES } from './app.routes';
-import { CoursesModule } from './courses/courses.module';
-import { HomeModule } from './home/home.module';
-import { FooterModule } from './footer/footer.module';
+import { FeaturesModule } from './features/features.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +15,9 @@ import { FooterModule } from './footer/footer.module';
   imports: [
     BrowserModule,
     CoreModule,
-    CoursesModule,
-    HomeModule,
+    FeaturesModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES),
-    FooterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
