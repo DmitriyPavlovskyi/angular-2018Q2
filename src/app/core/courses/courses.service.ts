@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserData } from '../../shared/models/user.model';
-import { TodoListItem } from '../../shared/models/todo-list-item.model';
+import { UserData } from '@app/shared/models/user.model';
+import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Injectable({
   providedIn: 'root'

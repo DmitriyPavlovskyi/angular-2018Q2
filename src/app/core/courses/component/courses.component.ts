@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../courses.service';
-import { TodoListItem } from '../../../shared/models/todo-list-item.model';
+import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Component({
   selector: 'app-courses',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserData } from '../../../shared/models/user.model';
-import { UserService } from '../../../core/courses/courses.service';
+import { UserData } from '@app/shared/models/user.model';
+import { UserService } from '@app/core/courses/courses.service';
 
 @Component({
   selector: 'app-header',
