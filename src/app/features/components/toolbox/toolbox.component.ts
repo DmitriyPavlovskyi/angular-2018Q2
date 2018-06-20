@@ -12,12 +12,16 @@ export class ToolboxComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleSearch() {
-    console.log('---Toolbox. Search triggered');
+  handleSearch(searchValue) {
+    console.log('---Toolbox. Search triggered. Input value is: ', searchValue);
   }
 
   handleAddCourse() {
     console.log('---Toolbox. Add course triggered');
+  }
+
+  handleChange() {
+    console.log('---Toolbox. Input changed');
   }
 
 }
