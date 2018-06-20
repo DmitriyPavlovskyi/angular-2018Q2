@@ -12,4 +12,12 @@ export class TodoListItemComponent implements OnInit {
 
   ngOnInit() {}
 
+  handleEdit() {
+    console.log('---List item. Edit triggered');
+  }
+
+  handleDelete() {
+    console.log('---List item. Delete triggered');
+  }
+
 }
