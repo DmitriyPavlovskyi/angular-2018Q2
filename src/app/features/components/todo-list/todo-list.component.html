@@ -1,1 +1,1 @@
-<app-todo-list-item *ngFor="let course of courses" [course]=course></app-todo-list-item>
+<app-todo-list-item *ngFor="let course of courses" [course]=course (deleteItem)="handleDeleteCourse($event)"></app-todo-list-item>

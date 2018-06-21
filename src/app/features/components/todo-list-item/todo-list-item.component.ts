@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Component({
@@ -6,8 +6,9 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
   templateUrl: './todo-list-item.component.html',
   styleUrls: ['./todo-list-item.component.css']
 })
-export class TodoListItemComponent implements OnInit {
+export class TodoListItemComponent implements OnInit {debugger
 @Input() course: TodoListItem;
+@Output() deleteItem: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {}
@@ -17,6 +18,7 @@ export class TodoListItemComponent implements OnInit {
   }
 
   handleDelete() {
+    this.deleteItem.emit(this.course.id);
     console.log('---List item. Delete triggered');
   }
 

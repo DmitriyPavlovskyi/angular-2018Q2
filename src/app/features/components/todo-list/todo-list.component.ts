@@ -13,4 +13,8 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {}
 
+  handleDeleteCourse(id) {
+    console.log('---Todo List. Course deletion triggered, course id: ', id);
+  }
+
 }
