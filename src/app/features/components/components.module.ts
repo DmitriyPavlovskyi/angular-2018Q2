@@ -6,13 +6,14 @@ import { FooterComponent } from './footer/footer.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { ToolboxComponent } from './toolbox/toolbox.component';
+import { LoadMoreComponent } from './load-more/load-more.component';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule
   ],
-  declarations: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent],
-  exports: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent]
+  declarations: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent, LoadMoreComponent],
+  exports: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent, LoadMoreComponent]
 })
 export class ComponentsModule { }
