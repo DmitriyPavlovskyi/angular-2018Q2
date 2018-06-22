@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../courses.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserData } from '@app/shared/models/user.model';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
+import { UserService } from '../courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,11 +10,13 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 })
 export class CoursesComponent implements OnInit {
   courses: TodoListItem[];
+  user: UserData;
 
   constructor(public services: UserService) { }
 
   ngOnInit() {
     this.courses = this.services.getTodoItems();
+    this.user = this.services.getUserData();
   }
 
 }

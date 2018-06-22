@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbox.component.css']
 })
 export class ToolboxComponent implements OnInit {
-
-  constructor() { }
+  searchValue: string;
+  constructor() {}
 
   ngOnInit() {
   }
