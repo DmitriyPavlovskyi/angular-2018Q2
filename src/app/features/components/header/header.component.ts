@@ -4,7 +4,7 @@ import { UserData } from '@app/shared/models/user.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @Input() user: UserData;
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   handleLogOff() {
-    console.log('---Header. User log off triggered')
+    console.log('---Header. User log off triggered');
   }
 
 }

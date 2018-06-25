@@ -1,12 +1,15 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar header">
   <div>
-    <span class="navbar-brand mb-0">
+    <span class="navbar-brand mb-0 header__logo">
       <img src="./assets/App-logo.svg" class="app-logo" alt="">
       Courses todo app
     </span>
   </div>
   <div>
-    <span class="navbar-text pr-3">Logged as {{user.firstName}} {{user.lastName}}</span>
-    <button class="btn btn-sm btn-outline-light" (click)="handleLogOff()">Log off</button>
+    <div class="header__avatar">
+      <img src="../../../../assets/default-user-logo.png" alt="User avatar">
+    </div>
+    <span class="navbar-text pr-3">{{user.firstName}} {{user.lastName}}</span>
+    <button class="btn btn-sm btn-outline-dark" (click)="handleLogOff()">Log off</button>
   </div>
 </nav>
