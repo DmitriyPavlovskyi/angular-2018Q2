@@ -1,0 +1,61 @@
+.todo-wrapper {
+  display: flex;
+  margin: 10px 0;
+  background-color: #FFF;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5px;
+  &__item {
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+
+  .item-creation-date {width:10%}
+  .item-title {width: 20%}
+  .item-duration {width: 10%}
+
+  .item-description {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50%;
+  }
+
+  .item-buttons-dd {
+    width:8%;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .item-buttons-dd .item-buttons {
+    position: absolute;
+    display: none;
+    left: 30%;
+    z-index: 1;
+    padding: 15px;
+    left: 50%;
+    top: -70%;
+  }
+
+  .item-buttons-dd .item-buttons button {
+    border-radius: 50px;
+  }
+  .item-buttons-dd:focus-within .item-buttons{
+    display: block;
+  }
+
+  .item-buttons-dd > button {
+    background-color: white;
+    border: none;
+    letter-spacing: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    color: #007bff87;
+    font-size: 25px;
+  }
+  .item-buttons-dd > button:hover {
+    color: #007bff;
+  }
+}
