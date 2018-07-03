@@ -18,5 +18,4 @@ export class CoursesComponent implements OnInit {
     this.courses = this.services.getTodoItems();
     this.user = this.services.getUserData();
   }
-
 }

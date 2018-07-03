@@ -12,9 +12,9 @@ export class UserService {
   public getUserData(): UserData {
     return {
       id: 0,
-      firstName: "John",
-      lastName: "Smith"
-    }
+      firstName: 'John',
+      lastName: 'Smith'
+    };
   }
 
   public getTodoItems(): TodoListItem[] {

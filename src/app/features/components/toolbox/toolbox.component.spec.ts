@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ToolboxComponent } from './toolbox.component';
 
 describe('ToolboxComponent', () => {
@@ -8,7 +7,7 @@ describe('ToolboxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolboxComponent ]
+      declarations: [ ToolboxComponent ],
     })
     .compileComponents();
   }));
