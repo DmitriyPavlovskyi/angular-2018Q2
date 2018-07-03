@@ -4,6 +4,11 @@ import { HeaderComponent } from './header.component';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  const user = {
+    firstName: 'John',
+    lastName: 'Smith',
+    id: 0
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,11 +20,11 @@ describe('HeaderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    component.user = user;
     fixture.detectChanges();
   });
 
-  // TODO: doesn't work
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

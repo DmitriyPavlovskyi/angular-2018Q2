@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
@@ -17,9 +16,7 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     FeaturesModule,
     SharedModule,
-    RouterModule.forRoot(ROUTES),
-    FormsModule,
-    ReactiveFormsModule
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

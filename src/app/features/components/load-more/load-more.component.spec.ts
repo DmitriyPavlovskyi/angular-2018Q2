@@ -22,4 +22,20 @@ describe('LoadMoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a button', () => {
+    const nativeElement: HTMLElement = fixture.nativeElement;
+    const button: HTMLElement = nativeElement.querySelector('button');
+
+    expect(button).toBeTruthy();
+  });
+
+  it('should have a right button name', () => {
+    const nativeElement: HTMLElement = fixture.nativeElement;
+    const button: HTMLElement = nativeElement.querySelector('button');
+
+    expect(button.textContent).toEqual('LOAD MORE');
+  });
+
+
 });
