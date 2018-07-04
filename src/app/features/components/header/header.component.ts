@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
 
   handleLogOff() {
     console.log('---Header. User log off triggered');
+    return '---Header. User log off triggered';
   }
 
 }

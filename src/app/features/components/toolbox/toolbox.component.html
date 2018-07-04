@@ -1,8 +1,7 @@
 <div class="input-group mb-3 mt-2">
-  <!-- TODO: Check is ngModel works correctly -->
   <input type="text" class="form-control" placeholder="Name, fragment or date" [(ngModel)]="searchValue">
   <div class="input-group-append">
-    <button class="btn btn-outline-primary" (click)="handleSearch(searchValue)">Search</button>
-    <button class="btn btn-outline-success" (click)="handleAddCourse()">Add a course</button>
+    <button class="btn btn-outline-primary search-button" (click)="handleSearch(searchValue)">Search</button>
+    <button class="btn btn-outline-success add-course-button" (click)="handleAddCourse()">Add a course</button>
   </div>
 </div>

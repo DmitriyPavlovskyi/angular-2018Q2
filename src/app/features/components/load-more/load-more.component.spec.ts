@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
 import { LoadMoreComponent } from './load-more.component';
 
 describe('LoadMoreComponent', () => {
@@ -37,5 +37,16 @@ describe('LoadMoreComponent', () => {
     expect(button.textContent).toEqual('LOAD MORE');
   });
 
+  it('should call load more method', () => {
+    expect(component.handleCLick()).toEqual('---Load more. Load button triggered');
+  });
 
+  it('should call load more event', () => {
+    fixture.detectChanges();
+    const addSpy = spyOn(component, 'handleCLick');
+    const addBtn = fixture.debugElement.query(By.css('.load-more-button'));
+    addBtn.triggerEventHandler('click', undefined);
+
+    expect(addSpy).toHaveBeenCalled();
+  });
 });

@@ -13,15 +13,12 @@ export class ToolboxComponent implements OnInit {
   }
 
   handleSearch(searchValue) {
-    console.log('---Toolbox. Search triggered. Input value is: ', searchValue);
+    console.log('---Toolbox. Search triggered');
+    return searchValue;
   }
 
   handleAddCourse() {
     console.log('---Toolbox. Add course triggered');
+    return '---Toolbox. Add course triggered';
   }
-
-  handleChange() {
-    console.log('---Toolbox. Input changed');
-  }
-
 }

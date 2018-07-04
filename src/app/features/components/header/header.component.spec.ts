@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -26,5 +27,18 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call logout method', () => {
+    expect(component.handleLogOff()).toEqual('---Header. User log off triggered');
+  });
+
+  it('should call logout event', () => {
+    fixture.detectChanges();
+    const addSpy = spyOn(component, 'handleLogOff');
+    const addBtn = fixture.debugElement.query(By.css('.logout-button'));
+    addBtn.triggerEventHandler('click', undefined);
+
+    expect(addSpy).toHaveBeenCalled();
   });
 });

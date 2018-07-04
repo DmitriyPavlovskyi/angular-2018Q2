@@ -13,6 +13,7 @@ export class LoadMoreComponent implements OnInit {
 
   handleCLick() {
     console.log('---Load more. Load button triggered');
+    return '---Load more. Load button triggered';
   }
 
 }

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TodoListComponent } from './todo-list.component';
+import { By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('TodoListComponent', () => {
@@ -22,5 +23,9 @@ describe('TodoListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call delete course method', () => {
+    expect(component.handleDeleteCourse(1)).toEqual(1);
   });
 });

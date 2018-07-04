@@ -15,11 +15,13 @@ export class TodoListItemComponent implements OnInit {
 
   handleEdit() {
     console.log('---List item. Edit triggered');
+    return '---List item. Edit triggered';
   }
 
   handleDelete() {
     this.deleteItem.emit(this.course.id);
     console.log('---List item. Delete triggered');
+    return this.course.id;
   }
 
 }
