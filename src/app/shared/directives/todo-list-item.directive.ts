@@ -1,11 +1,13 @@
-import { Directive, Renderer2, ElementRef } from '@angular/core';
+import { Directive, Renderer2, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[todoHighlight]'
-});
+  selector: '[appTodoHighlight]'
+})
+export class HighlightDirective implements OnInit {
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-export class HighlightDirective {
-  constructor(private el: ElementRef, private renderer: Renderer2) {
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', 'yellow');
+  ngOnInit() {
+    console.log('gadfasd');
+    this.renderer.setStyle(this.el.nativeElement, 'border', '1px solid red');
   }
 }
