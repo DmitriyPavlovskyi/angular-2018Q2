@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Component({
   selector: 'app-load-more',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./load-more.component.scss']
 })
 export class LoadMoreComponent implements OnInit {
+  @Input() courses: TodoListItem;
 
   constructor() { }
 

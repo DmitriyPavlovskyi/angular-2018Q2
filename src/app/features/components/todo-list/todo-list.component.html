@@ -1,1 +1,2 @@
 <app-todo-list-item *ngFor="let course of courses" class="testing" [course]=course (deleteItem)="handleDeleteCourse($event)"></app-todo-list-item>
+<div *ngIf="courses.length === 0" class="text-center">No Data! Feel free to add new course.</div>
