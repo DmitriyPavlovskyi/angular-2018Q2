@@ -1,8 +1,8 @@
 <app-header [user]="user"></app-header>
   <div class="container">
     <h4>Courses</h4>
-    <app-toolbox></app-toolbox>
-    <app-todo-list [courses]="courses"></app-todo-list>
+    <app-toolbox #toolbox></app-toolbox>
+    <app-todo-list [courses]="courses | searchBy:toolbox.searchValue"></app-todo-list>
     <app-load-more [courses]="courses"></app-load-more>
   </div>
 <app-footer></app-footer>

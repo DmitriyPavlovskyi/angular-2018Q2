@@ -1,4 +1,4 @@
-import { NameSortingPipe } from './name-sorting.pipe';
+import { NameSortingPipe } from './name.pipe';
 
 describe('NameSortingPipe', () => {
   it('create an instance', () => {
