@@ -11,7 +11,7 @@ describe('TodoListItemComponent', () => {
     description: 'Mocked description',
     duration: 90,
     id: 0
-  }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

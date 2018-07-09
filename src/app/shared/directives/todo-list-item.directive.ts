@@ -12,11 +12,11 @@ export class HighlightDirective implements OnInit {
   }
 
   private hightlightCourseFreshness(courseDate: number): void {
-    let currentDate = new Date().getTime();
+    const currentDate = new Date().getTime();
 
     if (courseDate > currentDate) {
       this.renderer.setStyle(this.el.nativeElement, 'border', '1px solid blue');
-    } else if (courseDate <= currentDate){
+    } else if (courseDate <= currentDate) {
       this.renderer.setStyle(this.el.nativeElement, 'border', '1px solid green');
     } else {
       this.renderer.setStyle(this.el.nativeElement, 'border', 'none');
