@@ -9,6 +9,7 @@ import { UserService } from '../courses.service';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
+  searchValue = '';
   courses: TodoListItem[];
   user: UserData;
 
@@ -17,5 +18,11 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
     this.courses = this.services.getTodoItems();
     this.user = this.services.getUserData();
+  }
+
+  handleSearch(newValue) {
+    console.log(newValue);
+
+    this.searchValue = newValue;
   }
 }
