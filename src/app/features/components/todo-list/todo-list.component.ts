@@ -7,7 +7,7 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  @Input() courses: TodoListItem;
+  @Input() courses: TodoListItem[];
   @Input() searchValue: string;
 
   constructor() { }
