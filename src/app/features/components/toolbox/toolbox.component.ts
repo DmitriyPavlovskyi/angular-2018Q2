@@ -13,9 +13,9 @@ export class ToolboxComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleSearch(searchValue) {
+  handleSearch() {
     console.log('---Toolbox. Search triggered');
-    this.search.emit(searchValue);
+    this.search.emit(this.searchValue);
   }
 
   handleAddCourse() {

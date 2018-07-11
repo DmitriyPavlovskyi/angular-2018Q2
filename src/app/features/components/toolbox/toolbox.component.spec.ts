@@ -26,7 +26,10 @@ describe('ToolboxComponent', () => {
   });
 
   it('should call search method with correct data', () => {
-    expect(component.handleSearch('Testing search data')).toEqual('Testing search data');
+    const addSpy = spyOn(component, 'handleSearch');
+
+
+    expect(addSpy).toHaveBeenCalled();
   });
   it('should call add course method', () => {
     expect(component.handleAddCourse()).toEqual('---Toolbox. Add course triggered');

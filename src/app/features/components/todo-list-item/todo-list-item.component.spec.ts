@@ -7,7 +7,7 @@ describe('TodoListItemComponent', () => {
   let fixture: ComponentFixture<TodoListItemComponent>;
   const course = {
     title: 'Mocked title',
-    creationDate: 'Mocked creation date',
+    creationDate: 1530870511382,
     description: 'Mocked description',
     duration: 90,
     id: 0
