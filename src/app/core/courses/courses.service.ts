@@ -24,6 +24,7 @@ export class UserService {
        title: 'Learn HTML',
        creationDate: 1530870511382,
        duration: 90,
+       isTopRated: true,
        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet cursus sit amet.',
      },
      {
@@ -31,6 +32,7 @@ export class UserService {
        title: 'CSS Fundamentals',
        creationDate: 1530860811382,
        duration: 60,
+       isTopRated: false,
        description: 'Aliquam ultrices sagittis orci a scelerisque purus semper eget. Etiam tempor orci eu lobortis elementum nibh tellus. Eget mauris pharetra et ultrices.',
      },
      {
@@ -38,6 +40,7 @@ export class UserService {
        title: 'Webpack Deep Dive',
        creationDate: 1530770811382,
        duration: 120,
+       isTopRated: true,
        description: 'Adipiscing tristique risus nec feugiat in fermentum posuere urna.',
      },
      {
@@ -45,6 +48,7 @@ export class UserService {
        title: 'JavaScript Essential Training',
        creationDate: 1540830811382,
        duration: 45,
+       isTopRated: true,
        description: 'Consequat mauris nunc congue nisi vitae suscipit tellus mauris. Facilisis sed odio morbi quis.',
      },
      {
@@ -52,6 +56,7 @@ export class UserService {
        title: 'Learn Angular basics',
        creationDate: 1630900811382,
        duration: 100,
+       isTopRated: false,
        description: 'Cursus risus at ultrices mi. Risus quis varius quam quisque id diam vel. Lectus arcu bibendum at varius. Nunc congue nisi vitae suscipit.',
      },
     ];

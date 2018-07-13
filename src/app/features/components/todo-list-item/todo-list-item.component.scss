@@ -5,6 +5,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 5px;
+
+  .top-rated {
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    background-image: url('../../../../assets/top-rated.png')
+  }
+
   &__item {
     padding: 0 10px;
     white-space: nowrap;
