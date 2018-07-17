@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@app/core/auth/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '@app/core/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
     console.log('login triggered');
 
     this.authService.login('hello', 'world');
+    this.router.navigate(['courses']);
   }
 
 }

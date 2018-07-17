@@ -14,10 +14,11 @@ export class AuthGuard implements CanActivate {
        console.log('---can activate triggered');
        const isAuthenticated = this.service.isAuthenticated();
 
-       if (!isAuthenticated) {
+       if ( !isAuthenticated) {
          this.router.navigate(['login']);
-       }
 
+         return false;
+       }
        return isAuthenticated;
      }
 }
