@@ -30,7 +30,7 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(this.userData));
     console.log('---login triggered');
 
-    this.router.navigate(['home'], { replaceUrl: true });
+    this.router.navigate(['courses'], { replaceUrl: true });
   }
 
   public logout(): void {

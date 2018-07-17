@@ -15,7 +15,7 @@ export class LoginGuard implements CanActivate {
        const isAuthenticated = this.service.isAuthenticated();
 
        if (isAuthenticated) {
-         this.router.navigate(['home']);
+         this.router.navigate(['courses']);
        }
 
        return !isAuthenticated;

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
+import { FeaturesModule } from '@app/features/features.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FeaturesModule
   ],
   declarations: [LoginComponent]
 })
