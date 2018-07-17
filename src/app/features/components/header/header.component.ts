@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserData } from '@app/shared/models/user.model';
+import { AuthService } from '@app/core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +8,17 @@ import { UserData } from '@app/shared/models/user.model';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() user: UserData;
 
-  constructor() {}
+  constructor(public authService: AuthService) {}
+  public user: UserData;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.authService.getUserInfo();
+  }
 
-  handleLogOff() {
+  handleLogOut() {
     console.log('---Header. User log off triggered');
-    return '---Header. User log off triggered';
+    this.authService.logout();
   }
 
 }

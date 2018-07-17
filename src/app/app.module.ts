@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginModule } from '@app/core/login/login.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     FeaturesModule,
     SharedModule,
+    LoginModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { UserData } from '@app/shared/models/user.model';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Injectable({
@@ -8,14 +7,6 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 export class UserService {
 
   constructor() { }
-
-  public getUserData(): UserData {
-    return {
-      id: 0,
-      firstName: 'John',
-      lastName: 'Smith'
-    };
-  }
 
   public getTodoItems(): TodoListItem[] {
     return [

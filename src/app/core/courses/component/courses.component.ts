@@ -17,7 +17,6 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit() {
     this.courses = this.services.getTodoItems();
-    this.user = this.services.getUserData();
   }
 
   handleSearch(newValue) {
