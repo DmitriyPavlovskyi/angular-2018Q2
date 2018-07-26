@@ -1,7 +1,4 @@
 <div>
   <p>Duration:</p>
-  <input type="text" placeholder="Set duration">
+  <input type="text" placeholder="Set duration" #duration (change)="handleChanges(duration.value)">
 </div>
-
-<!-- TODO: -->
-<!-- Input in minutes. Eval duration aside of input with pipe created before. -->

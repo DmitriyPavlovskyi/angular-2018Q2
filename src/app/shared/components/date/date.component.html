@@ -1,4 +1,4 @@
 <div>
   <p>Date:</p>
-  <input type="text" placeholder="Set date">
+  <input type="text" placeholder="Set date" #date (change)="handleChanges(date.value)">
 </div>
