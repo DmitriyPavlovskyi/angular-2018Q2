@@ -1,4 +1,4 @@
-import { DurationSortingPipe } from './duration.pipe';
+import { DurationSortingPipe } from '@app/shared/pipes/duration.pipe';
 
 describe('DurationSortingPipe', () => {
   it('create an instance', () => {

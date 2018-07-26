@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from '@app/core/home/component/home.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HomeComponent', () => {

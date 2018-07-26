@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ToolboxComponent } from './toolbox.component';
+import { ToolboxComponent } from '@app/features/components/toolbox/toolbox.component';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 

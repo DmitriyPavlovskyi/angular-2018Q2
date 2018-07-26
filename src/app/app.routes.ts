@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { CoursesComponent } from './core/courses/component/courses.component';
-import { HomeComponent } from './core/home/component/home.component';
+import { CoursesComponent } from '@app/core/courses/component/courses.component';
+import { HomeComponent } from '@app/core/home/component/home.component';
 import { AuthGuard } from '@app/core/auth/auth.guard';
 import { LoginComponent } from '@app/core/login/components/login/login.component';
 

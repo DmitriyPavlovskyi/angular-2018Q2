@@ -7,10 +7,12 @@ import { ROUTES } from './app.routes';
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from '@app/core/login/login.module';
+import { AddCourseComponent } from '@app/core/add-course/component/add-course.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,

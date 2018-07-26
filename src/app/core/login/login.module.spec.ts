@@ -1,4 +1,4 @@
-import { LoginModule } from './login.module';
+import { LoginModule } from '@app/core/login/login.module';
 
 describe('LoginModule', () => {
   let loginModule: LoginModule;

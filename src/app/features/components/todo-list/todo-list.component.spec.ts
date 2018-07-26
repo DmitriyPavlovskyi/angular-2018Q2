@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TodoListComponent } from './todo-list.component';
+import { TodoListComponent } from '@app/features/components/todo-list/todo-list.component';
 import { By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 

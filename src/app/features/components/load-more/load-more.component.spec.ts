@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LoadMoreComponent } from './load-more.component';
+import { LoadMoreComponent } from '@app/features/components/load-more/load-more.component';
 
 describe('LoadMoreComponent', () => {
   let component: LoadMoreComponent;

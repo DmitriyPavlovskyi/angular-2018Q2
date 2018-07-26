@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from '@app/features/components/header/header.component';
+import { FooterComponent } from '@app/features/components/footer/footer.component';
 
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { ToolboxComponent } from './toolbox/toolbox.component';
-import { LoadMoreComponent } from './load-more/load-more.component';
+import { TodoListComponent } from '@app/features/components/todo-list/todo-list.component';
+import { TodoListItemComponent } from '@app/features/components/todo-list-item/todo-list-item.component';
+import { ToolboxComponent } from '@app/features/components/toolbox/toolbox.component';
+import { LoadMoreComponent } from '@app/features/components/load-more/load-more.component';
 import { FormsModule } from '@angular/forms';
 import { DirectivesModule } from '@app/shared/directives/directives.module';
 import { SharedModule } from '@app/shared/shared.module';

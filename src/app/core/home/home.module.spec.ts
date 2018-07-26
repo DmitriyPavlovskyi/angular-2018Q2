@@ -1,4 +1,4 @@
-import { HomeModule } from './home.module';
+import { HomeModule } from '@app/core/home/home.module';
 
 describe('HomeModule', () => {
   let homeModule: HomeModule;

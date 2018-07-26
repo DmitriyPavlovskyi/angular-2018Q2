@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoursesComponent } from './courses.component';
+import { CoursesComponent } from '@app/core/courses/component/courses.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CoursesComponent', () => {
