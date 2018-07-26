@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbox',
@@ -8,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ToolboxComponent implements OnInit {
   @Output() search = new EventEmitter();
   searchValue: string;
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {
   }
@@ -20,6 +21,6 @@ export class ToolboxComponent implements OnInit {
 
   handleAddCourse() {
     console.log('---Toolbox. Add course triggered');
-    return '---Toolbox. Add course triggered';
+    this.router.navigate(['addCourse']);
   }
 }
