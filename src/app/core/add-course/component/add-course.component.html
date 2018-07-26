@@ -1,5 +1,24 @@
 <div>
-  <p>Add new course</p>
+  <h4>Add new course</h4>
+
+  <div>
+    <p>Title:</p>
+    <input type="text" placeholder="Enter title">
+  </div>
+
+  <div>
+    <p>Description:</p>
+    <textarea type="text" placeholder="Enter description"></textarea>
+  </div>
+
+  <app-date></app-date>
+  <app-duration></app-duration>
+
+  <div>
+    <p>Authors:</p>
+    <input type="text" placeholder="Set authors">
+  </div>
+  <button class="btn btn-success" (click)='handleSave()'>Save</button>
   <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
 </div>
 

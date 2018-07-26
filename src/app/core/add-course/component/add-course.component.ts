@@ -18,4 +18,9 @@ export class AddCourseComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
+  handleSave() {
+    console.log('---Add course. Save triggered');
+    // this.router.navigate(['courses']);
+  }
+
 }
