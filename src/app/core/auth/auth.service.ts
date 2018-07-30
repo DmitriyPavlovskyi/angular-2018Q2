@@ -11,14 +11,14 @@ export class AuthService {
 
     try {
       this.userData = JSON.parse(userData);
-    } catch(e) {
+    } catch (e) {
       console.log('Invalid user data');
     }
   }
 
   public userData: UserData;
 
-  public login(email, password): void {
+  public login(email): void {
     this.userData = {
       id: 0,
       firstName: 'John',

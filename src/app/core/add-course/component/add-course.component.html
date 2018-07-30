@@ -1,4 +1,4 @@
-<div>
+<div class="new-course-wrapper">
   <h4>Add new course</h4>
 
   <div>
@@ -18,8 +18,10 @@
     <p>Authors:</p>
     <input type="text" placeholder="Set authors" [(ngModel)]="course.authors">
   </div>
-  <button class="btn btn-success" (click)='handleSave()'>Save</button>
-  <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
+  <div class="mt-4 pb-4">
+    <button class="btn btn-success mr-1" (click)='handleSave()'>Save</button>
+    <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
+  </div>
 </div>
 
 <!-- TODO: -->
