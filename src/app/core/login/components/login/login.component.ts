@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   public login(): void {
     console.log('login triggered');
 
-    this.authService.login('hello', 'world');
+    this.authService.login('hello');
     this.router.navigate(['courses']);
   }
 

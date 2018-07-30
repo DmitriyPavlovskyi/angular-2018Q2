@@ -13,7 +13,7 @@ export const ROUTES: Route[] = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'addCourse', component: AddCourseComponent },
-  { path: 'editCourse', component: EditCourseComponent },
+  { path: 'editCourse/:id', component: EditCourseComponent },
   { path: '', redirectTo: 'courses', pathMatch: 'full' },
   { path: '**', component : NotFoundComponent },
 ];

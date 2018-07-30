@@ -8,7 +8,6 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 })
 export class TodoListComponent implements OnInit {
   @Input() courses: TodoListItem[];
-  @Input() searchValue: string;
 
   constructor() { }
 
