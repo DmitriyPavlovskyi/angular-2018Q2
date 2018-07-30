@@ -1,28 +1,30 @@
-<div class="new-course-wrapper">
-  <h4>Add new course</h4>
+<app-header></app-header>
+<div class="container">
+  <app-breadcrumbs></app-breadcrumbs>
+  <div class="new-course-wrapper">
+    <h4>Add new course</h4>
 
-  <div>
-    <p>Title:</p>
-    <input type="text" placeholder="Enter title" [(ngModel)]="course.title">
-  </div>
+    <div>
+      <p>Title:</p>
+      <input type="text" placeholder="Enter title" [(ngModel)]="course.title">
+    </div>
 
-  <div>
-    <p>Description:</p>
-    <textarea type="text" placeholder="Enter description" [(ngModel)]="course.description"></textarea>
-  </div>
+    <div>
+      <p>Description:</p>
+      <textarea type="text" placeholder="Enter description" [(ngModel)]="course.description"></textarea>
+    </div>
 
-  <app-date (getDate)="onGetDate($event)"></app-date>
-  <app-duration (getDuration)="onGetDuration($event)"></app-duration>
+    <app-date (getDate)="onGetDate($event)"></app-date>
+    <app-duration (getDuration)="onGetDuration($event)"></app-duration>
 
-  <div>
-    <p>Authors:</p>
-    <input type="text" placeholder="Set authors" [(ngModel)]="course.authors">
-  </div>
-  <div class="mt-4 pb-4">
-    <button class="btn btn-success mr-1" (click)='handleSave()'>Save</button>
-    <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
+    <div>
+      <p>Authors:</p>
+      <input type="text" placeholder="Set authors" [(ngModel)]="course.authors">
+    </div>
+    <div class="mt-4 pb-4">
+      <button class="btn btn-success mr-1" (click)='handleSave()'>Save</button>
+      <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
+    </div>
   </div>
 </div>
-
-<!-- TODO: -->
-<!-- Create guard so after refresh it'll redirect to login page -->
+<app-footer></app-footer>

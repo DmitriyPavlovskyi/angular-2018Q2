@@ -12,8 +12,8 @@ export const ROUTES: Route[] = [
   { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'addCourse', component: AddCourseComponent },
-  { path: 'editCourse/:id', component: EditCourseComponent },
+  { path: 'addCourse', component: AddCourseComponent, canActivate: [AuthGuard] },
+  { path: 'editCourse/:id', component: EditCourseComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'courses', pathMatch: 'full' },
   { path: '**', component : NotFoundComponent },
 ];

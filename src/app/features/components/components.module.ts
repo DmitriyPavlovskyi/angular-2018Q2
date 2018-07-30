@@ -10,6 +10,7 @@ import { LoadMoreComponent } from '@app/features/components/load-more/load-more.
 import { FormsModule } from '@angular/forms';
 import { DirectivesModule } from '@app/shared/directives/directives.module';
 import { SharedModule } from '@app/shared/shared.module';
+import { BreadcrumbsComponent } from '@app/features/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,23 @@ import { SharedModule } from '@app/shared/shared.module';
     DirectivesModule,
     SharedModule
   ],
-  declarations: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent, LoadMoreComponent],
-  exports: [HeaderComponent, FooterComponent, TodoListComponent, TodoListItemComponent, ToolboxComponent, LoadMoreComponent]
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    TodoListComponent,
+    TodoListItemComponent,
+    ToolboxComponent,
+    LoadMoreComponent,
+    BreadcrumbsComponent
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    TodoListComponent,
+    TodoListItemComponent,
+    ToolboxComponent,
+    LoadMoreComponent,
+    BreadcrumbsComponent
+  ]
 })
 export class ComponentsModule { }

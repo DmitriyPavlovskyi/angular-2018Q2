@@ -1,7 +1,7 @@
 <app-header></app-header>
 <!--!TODO вынести в роутер аутлет и ngif проверять показывать или нет хедер и футер -->
   <div class="container">
-    <h4>Courses</h4>
+    <app-breadcrumbs></app-breadcrumbs>
     <app-toolbox (search)="handleSearch($event)"></app-toolbox>
     <app-todo-list [courses]="courses | searchBy:searchValue"></app-todo-list>
     <app-load-more [courses]="courses"></app-load-more>

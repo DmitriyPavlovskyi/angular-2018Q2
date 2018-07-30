@@ -5,10 +5,12 @@ import { HomeModule } from '@app/core/home/home.module';
 import { AddCourseModule } from '@app/core/add-course/add-course.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { FeaturesModule } from '@app/features/features.module';
 
 @NgModule({
   imports: [
-    CommonModule, CoursesModule, HomeModule, AddCourseModule
+    CommonModule, CoursesModule, HomeModule, AddCourseModule, SharedModule, FeaturesModule
   ],
   declarations: [NotFoundComponent, EditCourseComponent],
   exports: []
