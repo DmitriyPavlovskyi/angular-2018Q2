@@ -18,8 +18,7 @@ export class TodoListItemComponent implements OnInit {
 
   handleEdit() {
     console.log('---List item. Edit triggered');
-    // this.router.navigate([`editCourse/${this.course.id}`]);
-    this.router.navigate(['editCourse', this.course.id]);
+    this.router.navigate(['courses', this.course.id]);
   }
 
   handleDelete() {

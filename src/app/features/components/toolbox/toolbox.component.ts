@@ -21,6 +21,6 @@ export class ToolboxComponent implements OnInit {
 
   handleAddCourse() {
     console.log('---Toolbox. Add course triggered');
-    this.router.navigate(['addCourse']);
+    this.router.navigate(['courses', 'new']);
   }
 }

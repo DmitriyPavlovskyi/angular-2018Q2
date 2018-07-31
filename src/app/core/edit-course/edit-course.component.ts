@@ -35,9 +35,19 @@ export class EditCourseComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
-  handleSave() {
-    console.log('---Edit course. Save triggered, edited course object is: ', this.currentCourse);
-    // this.router.navigate(['courses']);
-  }
+  handleSave(currentCourse) {debugger;
+    const editedCourse = {
+      title: this.currentCourse.title,
+      description: this.currentCourse.description,
+      duration: this.currentCourse.duration,
+      creationDate: this.currentCourse.creationDate,
+      id: this.currentCourse.id
+    };
 
+    this.services.updateTodoItems(this.currentCourse.id, editedCourse);
+    console.log('---Edit course. Save triggered, edited course object is: ', this.currentCourse);
+    this.router.navigate(['courses']);
+  }
+// TODO:
+// Write save method
 }

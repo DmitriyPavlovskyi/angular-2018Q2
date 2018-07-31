@@ -10,7 +10,7 @@ import { LoadMoreComponent } from '@app/features/components/load-more/load-more.
 import { FormsModule } from '@angular/forms';
 import { DirectivesModule } from '@app/shared/directives/directives.module';
 import { SharedModule } from '@app/shared/shared.module';
-import { BreadcrumbsComponent } from '@app/features/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsComponent } from '@app/features/components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   imports: [
