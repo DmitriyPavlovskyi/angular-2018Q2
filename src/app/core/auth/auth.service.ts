@@ -18,13 +18,13 @@ export class AuthService {
 
   public userData: UserData;
 
-  public login(email): void {
+  public login(user): void {
     this.userData = {
-      id: 0,
-      firstName: 'John',
-      lastName: 'Smith',
-      token: 'testToken',
-      email: email
+      id: user.id,
+      firstName: user.name.first,
+      lastName: user.name.last,
+      token: user.fakeToken,
+      login: user.login
     };
 
     localStorage.setItem('userData', JSON.stringify(this.userData));
