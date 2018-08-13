@@ -1,68 +1,72 @@
 import { Injectable } from '@angular/core';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+export interface TodoItemListState {
+  list: TodoListItem[];
+  hasMoreItems: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public todoItems: TodoListItem[];
+  constructor(public http: HttpClient) {}
+  public SINGLE_LOAD_AMOUNT = 5;
+  public todoItems$: BehaviorSubject<TodoItemListState> = new BehaviorSubject(null);
 
-  constructor() {
-    this.todoItems = [
-      {
-        id: 0,
-        title: 'Learn HTML',
-        creationDate: 1530870511382,
-        duration: 90,
-        isTopRated: true,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet cursus sit amet.',
-      },
-      {
-        id: 1,
-        title: 'CSS Fundamentals',
-        creationDate: 1530860811382,
-        duration: 60,
-        isTopRated: false,
-        description: 'Aliquam ultrices sagittis orci a scelerisque purus semper eget. Etiam tempor orci eu lobortis elementum nibh tellus. Eget mauris pharetra et ultrices.',
-      },
-      {
-        id: 2,
-        title: 'Webpack Deep Dive',
-        creationDate: 1530770811382,
-        duration: 120,
-        isTopRated: true,
-        description: 'Adipiscing tristique risus nec feugiat in fermentum posuere urna.',
-      },
-      {
-        id: 3,
-        title: 'JavaScript Essential Training',
-        creationDate: 1540830811382,
-        duration: 45,
-        isTopRated: true,
-        description: 'Consequat mauris nunc congue nisi vitae suscipit tellus mauris. Facilisis sed odio morbi quis.',
-      },
-      {
-        id: 4,
-        title: 'Learn Angular basics',
-        creationDate: 1630900811382,
-        duration: 100,
-        isTopRated: false,
-        description: 'Cursus risus at ultrices mi. Risus quis varius quam quisque id diam vel. Lectus arcu bibendum at varius. Nunc congue nisi vitae suscipit.',
-      },
-    ];
+  public getItemById(id): Observable<any> {
+    const state = this.todoItems$.value;
+
+    return this.http.get(`http://localhost:3004/courses/${id}`);
   }
 
-  public getTodoItems(): TodoListItem[] {
-    return this.todoItems;
+  public loadTodoItems(): void {
+    const currentList = this.todoItems$.value && this.todoItems$.value.list || [];
+
+    this.http.get(`http://localhost:3004/courses?start=${currentList.length}&count=${this.SINGLE_LOAD_AMOUNT}`)
+    .subscribe((data: TodoListItem[]) => {
+      const hasMoreItems =  data && data.length > 0;
+      const list = [...currentList, ...data];
+
+      this.todoItems$.next({
+        list,
+        hasMoreItems
+      });
+    })
   }
 
-  public updateTodoItems(id, editedItem): TodoListItem[] {
-    this.todoItems = this.todoItems.map((item, i) => {
-      if (item.id === parseInt(id, 10)) {
-        return editedItem;
-      }
-      return item;
-    });
-    return this.todoItems;
+  public reload(): void {
+    const state = this.todoItems$.value;
+
+    this.http.get(`http://localhost:3004/courses?start=0&count=${state.list.length}`)
+    .subscribe((data: TodoListItem[]) => {
+      const hasMoreItems =  data && data.length > 0;
+      const list = data;
+
+      this.todoItems$.next({
+        list,
+        hasMoreItems
+      });
+  })
+}
+
+
+  public delete(id): void {
+    this.http.delete(`http://localhost:3004/courses/${id}`)
+    .subscribe(() => {
+      this.reload();
+    })
+  }
+
+  public update(id, data): void {
+    const state = this.todoItems$.value;
+    // TODO: Проверить запрос, почему не доходит правильный ответ
+    this.http.patch(`http://localhost:3004/courses/${id}`, data)
+    .subscribe(data => {
+      console.log(data);
+      this.reload();
+    })
   }
 }

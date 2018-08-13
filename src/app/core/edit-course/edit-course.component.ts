@@ -16,17 +16,8 @@ export class EditCourseComponent implements OnInit {
   constructor(private route: ActivatedRoute, public services: UserService, public router: Router) { }
 
   ngOnInit() {
-    this.courses = this.services.getTodoItems();
-
-    this.route.params.subscribe((data) => {
-      this.routeParams.id = data['id'];
-    });
-    this.route.data.subscribe((data) => {
-      this.courses.map(course => {
-        if (course.id === parseInt(this.routeParams.id, 10)) {
-          return this.currentCourse = course;
-        }}
-      );
+    this.services.getItemById(this.route.snapshot.params.id).subscribe((data) => {
+      this.currentCourse = data;
     });
    }
 
@@ -35,16 +26,16 @@ export class EditCourseComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
-  handleSave(currentCourse) {debugger;
+  handleSave(currentCourse) {
     const editedCourse = {
-      title: this.currentCourse.title,
+      name: this.currentCourse.name,
       description: this.currentCourse.description,
       duration: this.currentCourse.duration,
       creationDate: this.currentCourse.creationDate,
       id: this.currentCourse.id
     };
 
-    this.services.updateTodoItems(this.currentCourse.id, editedCourse);
+    this.services.update(this.currentCourse.id, editedCourse);
     console.log('---Edit course. Save triggered, edited course object is: ', this.currentCourse);
     this.router.navigate(['courses']);
   }

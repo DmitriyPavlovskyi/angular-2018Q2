@@ -1,9 +1,9 @@
 // Экспортим интерфейсы наших данных
 export interface TodoListItem {
   id: number;
-  title: string;
+  name: string;
   creationDate: number;
   isTopRated: boolean;
-  duration: number;
+  length: number;
   description: string;
 }

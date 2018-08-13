@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
+import { UserService } from '@app/core/courses/courses.service';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -12,7 +13,7 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 export class TodoListItemComponent implements OnInit {
 @Input() course: TodoListItem;
 @Output() deleteItem: EventEmitter<number> = new EventEmitter<number>();
-  constructor(public router: Router) { }
+  constructor(public router: Router, public services: UserService ) {}
 
   ngOnInit() {}
 
@@ -24,6 +25,7 @@ export class TodoListItemComponent implements OnInit {
   handleDelete() {
     this.deleteItem.emit(this.course.id);
     console.log('---List item. Delete triggered');
+    this.services.delete(this.course.id);
     return this.course.id;
   }
 

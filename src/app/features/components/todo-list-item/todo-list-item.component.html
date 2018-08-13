@@ -1,8 +1,8 @@
 <div class="todo-wrapper" appTodoHighlight [courseDate]='course.creationDate'>
   <div [ngClass]="{'top-rated': course.isTopRated}"></div>
   <div class="todo-wrapper__item item-creation-date">{{course.creationDate | date:'dd.MM.yyyy'}}</div>
-  <div class="todo-wrapper__item item-title">{{course.title | uppercase}}</div>
-  <div class="todo-wrapper__item item-duration">{{course.duration | durationSorting:'course.duration'}} minutes</div>
+  <div class="todo-wrapper__item item-title">{{course.name | uppercase}}</div>
+  <div class="todo-wrapper__item item-length">{{course.length | durationSorting:'course.length'}} minutes</div>
   <div class="todo-wrapper__item item-description">{{course.description}}</div>
   <div class="todo-wrapper__item item-buttons-dd">
     <button><i class="fas fa-cog"></i></button>

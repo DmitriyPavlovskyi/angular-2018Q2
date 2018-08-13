@@ -1,9 +1,10 @@
 <app-header></app-header>
 <!--TODO: вынести в роутер аутлет и ngif проверять показывать или нет хедер и футер -->
-  <div class="container">
+  <div class="container" *ngIf="state; else loading">
     <app-breadcrumbs></app-breadcrumbs>
     <app-toolbox (search)="handleSearch($event)"></app-toolbox>
-    <app-todo-list [courses]="courses | searchBy:searchValue"></app-todo-list>
-    <app-load-more [courses]="courses"></app-load-more>
+    <app-todo-list [courses]="state.list || [] | searchBy:searchValue"></app-todo-list>
+    <button *ngIf="state.hasMoreItems" class="w-15 btn btn-success d-flex mx-auto load-more-button" (click)="services.loadTodoItems()">LOAD MORE</button>
   </div>
+  <ng-template #loading>Loading...</ng-template>
 <app-footer></app-footer>

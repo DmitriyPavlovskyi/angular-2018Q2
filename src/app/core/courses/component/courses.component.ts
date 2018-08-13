@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserData } from '@app/shared/models/user.model';
-import { TodoListItem } from '@app/shared/models/todo-list-item.model';
-import { UserService } from '@app/core/courses/courses.service';
+import { UserService, TodoItemListState } from '@app/core/courses/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -10,13 +9,18 @@ import { UserService } from '@app/core/courses/courses.service';
 })
 export class CoursesComponent implements OnInit {
   searchValue = '';
-  courses: TodoListItem[];
   user: UserData;
+  state: TodoItemListState;
 
-  constructor(public services: UserService) { }
+  constructor(public services: UserService, ) { }
 
   ngOnInit() {
-    this.courses = this.services.getTodoItems();
+    this.services.todoItems$.subscribe((newState) => {
+      if (!newState) {
+        this.services.loadTodoItems();
+      }
+        this.state = newState;
+    });
   }
 
   handleSearch(newValue) {

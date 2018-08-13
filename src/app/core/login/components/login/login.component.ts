@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public login(login, password): void {debugger;
+  public login(login, password): void {
     console.log('login triggered');
 
     fetch('http://localhost:3004/users').then(function(response) {
