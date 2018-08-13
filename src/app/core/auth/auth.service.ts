@@ -33,6 +33,10 @@ export class AuthService {
     this.router.navigate(['courses'], { replaceUrl: true });
   }
 
+  public get authorizationToken(): string {
+    return this.userData.token;
+  }
+
   public logout(): void {
     localStorage.removeItem('userData');
     this.userData = null;
@@ -44,7 +48,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     console.log('---is authenticated triggered');
 
-    return !!this.userData;
+    return this.userData && !!this.userData.token;
   }
 
   public getUserInfo(): UserData {

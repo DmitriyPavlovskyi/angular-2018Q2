@@ -34,7 +34,11 @@ export class UserService {
         list,
         hasMoreItems
       });
-    })
+    });
+  }
+
+  public handleSearch(value: string): Observable<any> {
+    return this.http.get(`http://localhost:3004/courses?textFragment=${value}`);
   }
 
   public reload(): void {
@@ -49,7 +53,7 @@ export class UserService {
         list,
         hasMoreItems
       });
-  })
+  });
 }
 
 
@@ -57,7 +61,7 @@ export class UserService {
     this.http.delete(`http://localhost:3004/courses/${id}`)
     .subscribe(() => {
       this.reload();
-    })
+    });
   }
 
   public update(id, data): void {
@@ -67,6 +71,6 @@ export class UserService {
     .subscribe(data => {
       console.log(data);
       this.reload();
-    })
+    });
   }
 }

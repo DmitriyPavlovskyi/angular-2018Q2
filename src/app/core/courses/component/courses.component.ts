@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserData } from '@app/shared/models/user.model';
 import { UserService, TodoItemListState } from '@app/core/courses/courses.service';
+import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -8,7 +9,6 @@ import { UserService, TodoItemListState } from '@app/core/courses/courses.servic
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  searchValue = '';
   user: UserData;
   state: TodoItemListState;
 
@@ -26,6 +26,8 @@ export class CoursesComponent implements OnInit {
   handleSearch(newValue) {
     console.log(newValue);
 
-    this.searchValue = newValue;
+    this.services.handleSearch(newValue).subscribe((data: TodoListItem[]) => {
+      this.state.list = data;
+  });
   }
 }
