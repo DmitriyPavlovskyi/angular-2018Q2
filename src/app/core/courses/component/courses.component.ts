@@ -24,10 +24,8 @@ export class CoursesComponent implements OnInit {
   }
 
   handleSearch(newValue) {
-    console.log(newValue);
-
-    this.services.handleSearch(newValue).subscribe((data: TodoListItem[]) => {
+    this.services.search(newValue).subscribe((data: any) => {
       this.state.list = data;
-  });
+    });
   }
 }

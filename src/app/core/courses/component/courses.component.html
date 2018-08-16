@@ -6,5 +6,6 @@
     <app-todo-list [courses]="state.list || []"></app-todo-list>
     <button *ngIf="state.hasMoreItems" class="w-15 btn btn-success d-flex mx-auto load-more-button" (click)="services.loadTodoItems()">LOAD MORE</button>
   </div>
-  <ng-template #loading>Loading...</ng-template>
+  <ngx-spinner></ngx-spinner>
+  <!-- <ng-template #loading>Loading...</ng-template> -->
 <app-footer></app-footer>

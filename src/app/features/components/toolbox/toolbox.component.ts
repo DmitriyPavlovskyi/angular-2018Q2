@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-toolbox',
@@ -8,15 +9,17 @@ import { Router } from '@angular/router';
 })
 export class ToolboxComponent implements OnInit {
   @Output() search = new EventEmitter();
-  searchValue: string;
+  searchTerm = new Subject<string>();
   constructor(public router: Router) {}
 
   ngOnInit() {
+    this.searchTerm.subscribe((inputValue) => this.handleSearch(inputValue));
   }
 
-  handleSearch() {
-    console.log('---Toolbox. Search triggered');
-    this.search.emit(this.searchValue);
+  handleSearch(inputValue: string) {
+    if (inputValue.length !== 0 && inputValue.length % 3 === 0) {
+      this.search.emit(this.searchTerm);
+    }
   }
 
   handleAddCourse() {

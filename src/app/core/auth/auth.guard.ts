@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthService } from '@app/core/auth/auth.service';
+import 'rxjs/add/operator/do';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,10 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
        console.log('---can activate triggered');
-       const isAuthenticated = this.service.isAuthenticated();
-
-       if ( !isAuthenticated) {
-         this.router.navigate(['login']);
-
-         return false;
-       }
-       return isAuthenticated;
+       return this.service.isAuthenticated().do((isLogin: boolean) => {
+        if (!isLogin) {
+          this.router.navigate(['login']);
+        }
+       });
      }
 }
