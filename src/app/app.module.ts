@@ -9,6 +9,9 @@ import { LoginModule } from '@app/core/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '@app/core/auth/auth-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from '@app/reducers/user';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +23,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FeaturesModule,
     LoginModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    StoreModule.forRoot({ user: userReducer })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}

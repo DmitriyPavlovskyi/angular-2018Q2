@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 import { UserData } from '@app/shared/models/user.model';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isLogin$: BehaviorSubject<boolean>;
+  user$: Observable<UserData>;
+  public userData: UserData;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private store: Store<UserData>) {debugger;
+    this.user$ = this.store.pipe(select('user'));
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.isLogin$ = new BehaviorSubject(this.userData && !!this.userData.token);
-
-    try {
-      this.userData = JSON.parse(this.userData);
-    } catch (e) {
-      console.log('Invalid user data');
-    }
   }
-
-  public userData: UserData;
 
   public login(user): void {
     this.userData = {
@@ -37,8 +34,11 @@ export class AuthService {
     this.router.navigate(['courses'], { replaceUrl: true });
   }
 
-  public get authorizationToken(): string {
-    return this.userData.token;
+  public get authorizationToken(): Observable<any> {
+    return this.user$.subscribe((data) => {
+      // TODO: edited
+      return data.token;
+    });
   }
 
   public logout(): void {
@@ -50,7 +50,7 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): any {
     console.log('---is authenticated triggered');
 
     return this.isLogin$;
