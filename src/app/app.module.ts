@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '@app/core/auth/auth-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { userReducer } from '@app/reducers/user';
+import { userReducer } from '@app/store/reducers/user';
 
 
 @NgModule({

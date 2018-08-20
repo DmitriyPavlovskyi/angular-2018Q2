@@ -3,6 +3,7 @@ import { UserData } from '@app/shared/models/user.model';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
+import * as userReducer from '../../store/reducers/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class AuthService {
   user$: Observable<UserData>;
   public userData: UserData;
 
-  constructor(public router: Router, private store: Store<UserData>) {debugger;
-    this.user$ = this.store.pipe(select('user'));
+  constructor(public router: Router, private store: Store<UserData>) {
+    this.user$ = this.store.pipe(select(userReducer.getUser));
+    debugger;
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.isLogin$ = new BehaviorSubject(this.userData && !!this.userData.token);
   }
@@ -32,13 +34,6 @@ export class AuthService {
     this.isLogin$.next(true);
 
     this.router.navigate(['courses'], { replaceUrl: true });
-  }
-
-  public get authorizationToken(): Observable<any> {
-    return this.user$.subscribe((data) => {
-      // TODO: edited
-      return data.token;
-    });
   }
 
   public logout(): void {

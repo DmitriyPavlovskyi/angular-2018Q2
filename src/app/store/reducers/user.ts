@@ -1,8 +1,14 @@
+import { UserData } from './../../shared/models/user.model';
 import { Action, createSelector } from '@ngrx/store';
 
 export const LOGIN = 'LOGIN';
 
-const initialState = {
+
+export interface AppState {
+  user: UserData;
+}
+
+const initialState: AppState = {
   user: {
     id: null,
     firstName: null,
@@ -12,16 +18,16 @@ const initialState = {
   }
 };
 
-export function userReducer(state = initialState, action: Action) {debugger;
+export function userReducer(state = initialState, action: Action) {
   // TODO: edited
   switch (action.type) {
     case LOGIN:
-      return Object.assign({} , state.user, {
+      return {
+        ...state.user,
         firstName: 'John111',
         lastName: 'Smith',
         token: '58ebfdf7f1f558c5c86e17f6'
-      }
-    );
+      };
 
     default: return state;
   }
@@ -30,5 +36,11 @@ export function userReducer(state = initialState, action: Action) {debugger;
 export const selectUser = (state: any) => state.user;
 
 export const getUser = createSelector(
+  selectUser
+);
+
+
+export const authToken = createSelector(
   selectUser,
+  (user) => user.token
 );
