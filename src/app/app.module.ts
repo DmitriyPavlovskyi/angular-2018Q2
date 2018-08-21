@@ -26,7 +26,7 @@ import { userReducer } from '@app/store/reducers/user';
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({ user: userReducer })
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

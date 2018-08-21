@@ -13,7 +13,7 @@ const initialState: AppState = {
     id: null,
     firstName: null,
     lastName: null,
-    token: null,
+    token: '58ebfdf7f1f558c5c86e17f6',
     login: null
   }
 };
