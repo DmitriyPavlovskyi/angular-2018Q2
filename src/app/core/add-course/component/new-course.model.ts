@@ -1,7 +1,8 @@
 export interface NewCourse {
-  title: string;
-  creationDate: number;
-  duration: number;
+  name: string;
+  date: number;
+  length: number;
   description: string;
   authors: string;
+  isTopRated: boolean;
 }

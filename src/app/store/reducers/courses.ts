@@ -59,10 +59,14 @@ export function reducer(state = initialState, action: coursesActions.Action) {
       return state;
     }
 
-    case coursesActions.GET_COURSE_BY_ID: {debugger;
+    case coursesActions.GET_COURSE_BY_ID: {
       const activeCourse = state.courses.find((item) => item.id === parseInt(action.payload, 10));
 
       return {courses: [...state.courses], activeCourse};
+    }
+
+    case coursesActions.ADD_NEW_COURSE: {debugger;
+      return {...state, courses: [...state.courses, action.payload]};
     }
 
     default:
