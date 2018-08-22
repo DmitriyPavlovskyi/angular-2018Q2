@@ -2,7 +2,7 @@
   <div class="container" *ngIf="state; else loading">
     <app-breadcrumbs></app-breadcrumbs>
     <app-toolbox (search)="handleSearch($event)"></app-toolbox>
-    <app-todo-list [courses]="state.list || []"></app-todo-list>
+    <app-todo-list [courses]="courses"></app-todo-list>
     <button *ngIf="state.hasMoreItems" class="w-15 btn btn-success d-flex mx-auto load-more-button" (click)="services.loadTodoItems()">LOAD MORE</button>
   </div>
   <ngx-spinner></ngx-spinner>

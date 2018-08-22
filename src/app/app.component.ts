@@ -12,10 +12,6 @@ export class AppComponent {
   title = 'app';
 
   constructor(private store: Store<fromRoot.State>) {
-    store.select(fromRoot.getCourses).subscribe((courses) => {
-      debugger;
-      console.log(courses);
-    });
     store.dispatch(new coursesActions.LoadCourses());
   }
 }

@@ -54,12 +54,8 @@ export const initialState: State = {
 export function reducer(state = initialState, action: coursesActions.Action) {
   switch (action.type) {
     case coursesActions.LOAD_COURSES: {
-      const newCourses: TodoListItem[] = state.courses;
-      newCourses[1] = null;
 
-      return {
-        courses: [...newCourses]
-      };
+      return  state;
     }
 
     default:
@@ -67,6 +63,4 @@ export function reducer(state = initialState, action: coursesActions.Action) {
   }
 }
 
-// export const getIds = (state: State) => state.ids;
 export const getCourses = (state: State) => state.courses;
-// export const getSelected = (state: State) => state.selected;

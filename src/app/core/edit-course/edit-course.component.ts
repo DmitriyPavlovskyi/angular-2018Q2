@@ -39,6 +39,4 @@ export class EditCourseComponent implements OnInit {
     console.log('---Edit course. Save triggered, edited course object is: ', this.currentCourse);
     this.router.navigate(['courses']);
   }
-// TODO:
-// Write save method
 }

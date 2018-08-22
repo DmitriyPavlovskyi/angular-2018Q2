@@ -11,12 +11,6 @@ export class AuthService {
   constructor(public router: Router) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.isLogin$ = new BehaviorSubject(this.userData && !!this.userData.token);
-
-    try {
-      this.userData = JSON.parse(this.userData);
-    } catch (e) {
-      console.log('Invalid user data');
-    }
   }
 
   public userData: UserData;
@@ -53,7 +47,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     console.log('---is authenticated triggered');
 
-    return this.isLogin$;
+    return !!this.isLogin$;
   }
 
   public getUserInfo(): UserData {

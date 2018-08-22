@@ -8,8 +8,6 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { timeout } from '../../../../node_modules/@types/q';
-import { filter } from '../../../../node_modules/rxjs-compat/operator/filter';
 
 export interface TodoItemListState {
   list: TodoListItem[];
@@ -78,7 +76,6 @@ export class UserService {
   });
 }
 
-
   public delete(id): void {
     this.http.delete(`http://localhost:3004/courses/${id}`)
     .subscribe(() => {
@@ -88,7 +85,6 @@ export class UserService {
 
   public update(id, data): void {
     const state = this.todoItems$.value;
-    // TODO: Проверить запрос, почему не доходит правильный ответ
     this.http.patch(`http://localhost:3004/courses/${id}`, data)
     .subscribe(data => {
       console.log(data);
