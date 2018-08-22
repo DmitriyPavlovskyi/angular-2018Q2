@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '@app/store/reducers';
+import * as usersActions from '@app/store/actions/users';
 import { AuthService } from '@app/core/auth/auth.service';
 
 @Component({
@@ -10,9 +13,16 @@ import { AuthService } from '@app/core/auth/auth.service';
 export class LoginComponent implements OnInit {
   userLogin: string;
   userPassword: string;
-  constructor(public authService: AuthService, public router: Router) { }
+  constructor(public authService: AuthService, public router: Router, private store: Store<fromRoot.State>) { }
 
-  ngOnInit() {
+
+  ngOnInit() {debugger;
+    this.store.select(fromRoot.getUsers).subscribe((users) => {
+      console.log(users);
+    });
+
+    this.store.dispatch(new usersActions.LoadUsers());
+
   }
 
   public login(login, password): void {

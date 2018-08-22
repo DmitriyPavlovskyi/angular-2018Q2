@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(public router: Router) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
-    this.isLogin$ = new BehaviorSubject(this.userData && !!this.userData.token);
+    this.isLogin$ = new BehaviorSubject(this.userData && !!this.userData.fakeToken);
   }
 
   public userData: UserData;
@@ -18,10 +18,13 @@ export class AuthService {
   public login(user): void {
     this.userData = {
       id: user.id,
-      firstName: user.name.first,
-      lastName: user.name.last,
-      token: user.fakeToken,
-      login: user.login
+      name: {
+        first: user.name.first,
+        last: user.name.last
+      },
+      fakeToken: user.fakeToken,
+      login: user.login,
+      password: user.password
     };
 
     localStorage.setItem('userData', JSON.stringify(this.userData));
@@ -32,7 +35,7 @@ export class AuthService {
   }
 
   public get authorizationToken(): string {
-    return this.userData.token;
+    return this.userData.fakeToken;
   }
 
   public logout(): void {

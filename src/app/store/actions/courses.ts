@@ -23,7 +23,6 @@ export class AddNewCourse implements Action {
   constructor(public payload) { }
 }
 
-
 // export class AddOne implements Action {
 //   readonly type = ADD_ONE;
 

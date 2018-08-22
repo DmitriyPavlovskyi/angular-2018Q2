@@ -1,7 +1,10 @@
 export interface UserData {
   id: number;
-  firstName: string;
-  lastName: string;
-  token: string;
+  name: {
+    last: string,
+    first: string
+  };
+  fakeToken: string;
+  password: string;
   login: string;
 }

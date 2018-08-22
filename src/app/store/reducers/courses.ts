@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import * as coursesActions from '../actions/courses';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
+import { UserData } from '@app/shared/models/user.model';
 
 
 export interface State {
