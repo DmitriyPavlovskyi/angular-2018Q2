@@ -17,7 +17,7 @@ export interface TodoItemListState {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class CoursesService {
   constructor(public http: HttpClient, private spinner: NgxSpinnerService) {}
   public SINGLE_LOAD_AMOUNT = 5;
   public todoItems$: BehaviorSubject<TodoItemListState> = new BehaviorSubject(null);

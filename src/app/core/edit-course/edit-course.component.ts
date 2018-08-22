@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '@app/core/courses/courses.service';
+import { Store } from '@ngrx/store';
+import { CoursesService } from '@app/core/courses/courses.service';
+import * as fromRoot from '@app/store/reducers';
+import * as coursesActions from '@app/store/actions/courses';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -13,12 +16,20 @@ export class EditCourseComponent implements OnInit {
   public routeParams: any = {};
   public currentCourse: any = {};
 
-  constructor(private route: ActivatedRoute, public services: UserService, public router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    public services: CoursesService,
+    public router: Router,
+    private store: Store<fromRoot.State>
+  ) { }
 
-  ngOnInit() {
-    this.services.getItemById(this.route.snapshot.params.id).subscribe((data) => {
-      this.currentCourse = data;
+  ngOnInit() {debugger;
+    this.store.select(fromRoot.getActiveCourse).subscribe((course) => {
+      console.log(course);
+      this.currentCourse = course;
     });
+
+    this.store.dispatch(new coursesActions.GetCourseById(this.route.snapshot.params.id));
    }
 
    handleCancel() {
@@ -30,8 +41,8 @@ export class EditCourseComponent implements OnInit {
     const editedCourse = {
       name: this.currentCourse.name,
       description: this.currentCourse.description,
-      duration: this.currentCourse.duration,
-      creationDate: this.currentCourse.creationDate,
+      duration: this.currentCourse.length,
+      creationDate: this.currentCourse.date,
       id: this.currentCourse.id
     };
 

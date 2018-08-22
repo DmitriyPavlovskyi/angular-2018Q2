@@ -5,6 +5,7 @@ import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 export interface State {
   courses: TodoListItem[];
+  activeCourse: TodoListItem;
 }
 
 export const initialState: State = {
@@ -48,14 +49,20 @@ export const initialState: State = {
       }
     ],
     'length': 207
-  }, ]
+  }, ],
+  activeCourse: null
 };
 
 export function reducer(state = initialState, action: coursesActions.Action) {
   switch (action.type) {
     case coursesActions.LOAD_COURSES: {
+      return state;
+    }
 
-      return  state;
+    case coursesActions.GET_COURSE_BY_ID: {debugger;
+      const activeCourse = state.courses.find((item) => item.id === parseInt(action.payload, 10));
+
+      return {courses: [...state.courses], activeCourse};
     }
 
     default:
@@ -64,3 +71,4 @@ export function reducer(state = initialState, action: coursesActions.Action) {
 }
 
 export const getCourses = (state: State) => state.courses;
+export const getActiveCourse = (state: State) => state.activeCourse;

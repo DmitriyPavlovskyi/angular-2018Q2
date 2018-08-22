@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '@app/store/reducers';
+import * as coursesActions from '@app/store/actions/courses';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
-import { UserService } from '@app/core/courses/courses.service';
+import { CoursesService } from '@app/core/courses/courses.service';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -13,11 +16,11 @@ import { UserService } from '@app/core/courses/courses.service';
 export class TodoListItemComponent implements OnInit {
 @Input() course: TodoListItem;
 @Output() deleteItem: EventEmitter<number> = new EventEmitter<number>();
-  constructor(public router: Router, public services: UserService ) {}
+  constructor(public router: Router, public services: CoursesService, private store: Store<fromRoot.State> ) {}
 
   ngOnInit() {}
 
-  handleEdit() {
+  handleEdit() {debugger;
     console.log('---List item. Edit triggered');
     this.router.navigate(['courses', this.course.id]);
   }

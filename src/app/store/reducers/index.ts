@@ -20,3 +20,8 @@ export const getCourses = createSelector(
   getCoursesState,
   fromCourses.getCourses,
 );
+
+export const getActiveCourse = createSelector(
+  getCoursesState,
+  fromCourses.getActiveCourse,
+);

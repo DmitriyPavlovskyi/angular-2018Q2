@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserData } from '@app/shared/models/user.model';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '@app/store/reducers';
-import { UserService, TodoItemListState } from '@app/core/courses/courses.service';
+import { CoursesService, TodoItemListState } from '@app/core/courses/courses.service';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 
 @Component({
@@ -15,7 +15,7 @@ export class CoursesComponent implements OnInit {
   state: TodoItemListState;
   courses: TodoListItem[];
 
-  constructor(public services: UserService, private store: Store<fromRoot.State>) {}
+  constructor(public services: CoursesService, private store: Store<fromRoot.State>) {}
 
   ngOnInit() {
     this.store.select(fromRoot.getCourses).subscribe((courses) => {
