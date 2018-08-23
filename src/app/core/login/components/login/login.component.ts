@@ -16,31 +16,21 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router, private store: Store<fromRoot.State>) { }
 
 
-  ngOnInit() {debugger;
-    this.store.select(fromRoot.getUsers).subscribe((users) => {
-      console.log(users);
-    });
-
-    this.store.dispatch(new usersActions.LoadUsers());
-
-  }
+  ngOnInit() {}
 
   public login(login, password): void {
     console.log('login triggered');
 
-    fetch('http://localhost:3004/users').then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      console.log(data);
-      data.forEach(item => {
-        if (item.login === login.value && item.password === password.value) {
-          console.log('success login!');
-          this.authService.login(item);
-          this.router.navigate(['courses']);
-        }
-      });
-    }.bind(this)).catch(function() {
-      console.log('Internal error');
+    this.store.dispatch(new usersActions.CheckIsAuthorizedUser({
+      login: login.value,
+      password: password.value
+    }));
+
+    this.store.select(fromRoot.getIsAuthorizedUser).subscribe((isUserAuthorized) => {
+      if (isUserAuthorized) {
+        this.authService.login(isUserAuthorized);
+        this.router.navigate(['courses']);
+      }
     });
   }
 

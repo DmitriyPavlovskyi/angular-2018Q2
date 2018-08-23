@@ -20,7 +20,7 @@ export class TodoListItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  handleEdit() {debugger;
+  handleEdit() {
     console.log('---List item. Edit triggered');
     this.router.navigate(['courses', this.course.id]);
   }

@@ -34,3 +34,13 @@ export const getUsers = createSelector(
   getUsersState,
   fromUsers.getUsers,
 );
+
+export const getIsAuthorizedUser = createSelector(
+  getUsersState,
+  fromUsers.getIsAuthorizedUser,
+);
+
+export const checkIsAuthorizedUser = createSelector(
+  getUsersState,
+  fromUsers.getUsers,
+);

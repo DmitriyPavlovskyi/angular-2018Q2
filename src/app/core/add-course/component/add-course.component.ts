@@ -42,7 +42,7 @@ export class AddCourseComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
-  handleSave() {debugger;
+  handleSave() {
     console.log('---Add course. Save triggered, new course object is: ', this.course);
     this.store.dispatch(new coursesActions.AddNewCourse(this.course));
     this.router.navigate(['courses']);

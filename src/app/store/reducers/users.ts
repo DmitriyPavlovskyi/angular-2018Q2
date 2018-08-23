@@ -5,6 +5,7 @@ import { UserData } from '@app/shared/models/user.model';
 
 export interface State {
   users: UserData[];
+  isAuthorizedUser: any;
 }
 
 export const initialState: State = {
@@ -29,13 +30,27 @@ export const initialState: State = {
       password: 'id',
       login: 'Morales'
     }
-  ]
+  ],
+  isAuthorizedUser: null
 };
 
 export function reducer(state = initialState, action: usersActions.Action) {
   switch (action.type) {
-    case usersActions.LOAD_USERS: {debugger;
+    case usersActions.LOAD_USERS: {
       return state;
+    }
+
+    case usersActions.CHECK_IS_AUTHORIZE_USER: {
+      const {login, password} = action.payload;
+      let newState = {...state};
+
+      state.users.map(item => {
+        if (item.login === login && item.password === password) {
+          newState =  {...newState, isAuthorizedUser: item};
+        }
+      });
+
+      return newState;
     }
 
     default:
@@ -44,3 +59,4 @@ export function reducer(state = initialState, action: usersActions.Action) {
 }
 
 export const getUsers = (state: State) => state.users;
+export const getIsAuthorizedUser = (state: State) => state.isAuthorizedUser;

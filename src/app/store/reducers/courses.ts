@@ -66,7 +66,7 @@ export function reducer(state = initialState, action: coursesActions.Action) {
       return {courses: [...state.courses], activeCourse};
     }
 
-    case coursesActions.ADD_NEW_COURSE: {debugger;
+    case coursesActions.ADD_NEW_COURSE: {
       return {...state, courses: [...state.courses, action.payload]};
     }
 

@@ -23,7 +23,7 @@ export class EditCourseComponent implements OnInit {
     private store: Store<fromRoot.State>
   ) { }
 
-  ngOnInit() {debugger;
+  ngOnInit() {
     this.store.select(fromRoot.getActiveCourse).subscribe((course) => {
       console.log(course);
       this.currentCourse = course;
