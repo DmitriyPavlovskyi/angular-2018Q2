@@ -7,10 +7,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { FeaturesModule } from '@app/features/features.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, CoursesModule, HomeModule, AddCourseModule, SharedModule, FeaturesModule
+    CommonModule, CoursesModule, HomeModule, AddCourseModule, SharedModule, FeaturesModule, ReactiveFormsModule
   ],
   declarations: [NotFoundComponent, EditCourseComponent],
   exports: []

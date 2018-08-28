@@ -5,6 +5,7 @@ import * as fromRoot from '@app/store/reducers';
 import * as coursesActions from '@app/store/actions/courses';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-course',
@@ -15,6 +16,13 @@ export class EditCourseComponent implements OnInit {
   @Input() courses: TodoListItem[];
   public routeParams: any = {};
   public currentCourse: any = {};
+
+  course = new FormGroup({
+    title: new FormControl(),
+    description: new FormControl(),
+    length: new FormControl(),
+    date: new FormControl()
+  });
 
   constructor(
     private route: ActivatedRoute,

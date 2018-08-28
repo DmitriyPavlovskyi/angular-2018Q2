@@ -1,32 +1,32 @@
 <app-header></app-header>
 <div class="container">
   <app-breadcrumbs></app-breadcrumbs>
-    <div class="edit-course-wrapper">
+    <form [formGroup]='course' class="edit-course-wrapper">
       <h4>Edit course</h4>
       <div>
         <p>Title:</p>
-        <input type="text" placeholder="Enter title" [(ngModel)]='currentCourse.name'>
+        <input type="text" placeholder="Enter title" [(ngModel)]='currentCourse.name' formControlName='title'>
       </div>
 
       <div>
         <p>Description:</p>
-        <textarea type="text" placeholder="Enter description" [(ngModel)]='currentCourse.description'></textarea>
+        <textarea type="text" placeholder="Enter description" [(ngModel)]='currentCourse.description' formControlName='description'></textarea>
       </div>
 
       <div>
         <p>Duration (in minutes):</p>
-        <input type="text" placeholder="Enter duration " [(ngModel)]='currentCourse.length'/>
+        <input type="text" placeholder="Enter duration " [(ngModel)]='currentCourse.length' formControlName='length'/>
       </div>
 
       <div>
         <p>Creation date (In miliseconds):</p>
-        <input type="text" placeholder="Enter creation date" [(ngModel)]='currentCourse.date'/>
+        <input type="text" placeholder="Enter creation date" [(ngModel)]='currentCourse.date' formControlName='date'/>
       </div>
 
       <div class="mt-4 pb-4">
         <button class="btn btn-success mr-1" (click)='handleSave(currentCourse)'>Save</button>
         <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
       </div>
-    </div>
+    </form>
   </div>
 <app-footer></app-footer>
