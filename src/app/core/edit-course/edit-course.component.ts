@@ -5,7 +5,7 @@ import * as fromRoot from '@app/store/reducers';
 import * as coursesActions from '@app/store/actions/courses';
 import { TodoListItem } from '@app/shared/models/todo-list-item.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-course',
@@ -15,13 +15,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class EditCourseComponent implements OnInit {
   @Input() courses: TodoListItem[];
   public routeParams: any = {};
-  public currentCourse: any = {};
 
   course = new FormGroup({
-    title: new FormControl(),
-    description: new FormControl(),
-    length: new FormControl(),
-    date: new FormControl()
+    title: new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
+    description: new FormControl('', [ Validators.required, Validators.maxLength(500) ]),
+    length: new FormControl('', [ Validators.required, Validators.max(600)] ),
+    date: new FormControl('', [ Validators.required ])
   });
 
   constructor(
@@ -34,7 +33,15 @@ export class EditCourseComponent implements OnInit {
   ngOnInit() {
     this.store.select(fromRoot.getActiveCourse).subscribe((course) => {
       console.log(course);
-      this.currentCourse = course;
+
+      if (course) {
+        this.course.setValue({
+          title: course.name,
+          description: course.description,
+          length: course.length,
+          date: course.date
+        });
+      }
     });
 
     this.store.dispatch(new coursesActions.GetCourseById(this.route.snapshot.params.id));
@@ -45,17 +52,17 @@ export class EditCourseComponent implements OnInit {
     this.router.navigate(['courses']);
   }
 
-  handleSave(currentCourse) {
+  handleSave() {
     const editedCourse = {
-      name: this.currentCourse.name,
-      description: this.currentCourse.description,
-      duration: this.currentCourse.length,
-      creationDate: this.currentCourse.date,
-      id: this.currentCourse.id
+      name: this.course.value.name,
+      description: this.course.value.description,
+      duration: this.course.value.length,
+      creationDate: this.course.value.date,
+      id: this.route.snapshot.params.id
     };
 
-    this.services.update(this.currentCourse.id, editedCourse);
-    console.log('---Edit course. Save triggered, edited course object is: ', this.currentCourse);
+    this.services.update(this.course.value.id, editedCourse);
+    console.log('---Edit course. Save triggered, edited course object is: ', this.course.value);
     this.router.navigate(['courses']);
   }
 }
