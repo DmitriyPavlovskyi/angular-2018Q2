@@ -1,30 +1,36 @@
 <app-header></app-header>
 <div class="container">
   <app-breadcrumbs></app-breadcrumbs>
-  <div class="new-course-wrapper">
+  <form [formGroup]='newCourse' class="new-course-wrapper">
     <h4>Add new course</h4>
 
     <div>
       <p>Title:</p>
-      <input type="text" placeholder="Enter title" [(ngModel)]="course.name">
+      <input type="text" placeholder="Enter title" formControlName='title'>
     </div>
 
     <div>
       <p>Description:</p>
-      <textarea type="text" placeholder="Enter description" [(ngModel)]="course.description"></textarea>
+      <textarea type="text" placeholder="Enter description" formControlName='description'></textarea>
     </div>
-
-    <app-date (getDate)="onGetDate($event)"></app-date>
-    <app-duration (getDuration)="onGetDuration($event)"></app-duration>
 
     <div>
+      <p>Duration (in minutes):</p>
+      <input type="number" placeholder="Enter duration" formControlName='length'/>
+    </div>
+
+    <div>
+      <p>Creation date (in miliseconds):</p>
+      <input type="date" placeholder="Enter creation date" formControlName='date' min="2000-01-01" max="2018-12-31"/>
+    </div>
+
+    <!-- <div>
       <p>Authors:</p>
       <input type="text" placeholder="Set authors" [(ngModel)]="course.authors">
-    </div>
+    </div> -->
     <div class="mt-4 pb-4">
-      <button class="btn btn-success mr-1" (click)='handleSave()'>Save</button>
+      <button class="btn btn-success mr-1" (click)='handleSave()' [disabled]="!newCourse.valid">Save</button>
       <button class="btn btn-danger" (click)='handleCancel()'>Cancel</button>
     </div>
-  </div>
-</div>
+  </form>
 <app-footer></app-footer>

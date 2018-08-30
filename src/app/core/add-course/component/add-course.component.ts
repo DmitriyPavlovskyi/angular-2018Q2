@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as fromRoot from '@app/store/reducers';
 import * as coursesActions from '@app/store/actions/courses';
 import { NewCourse } from './new-course.model';
@@ -16,6 +17,13 @@ export class AddCourseComponent implements OnInit {
   descriptionValue: string;
   authorsValue: string;
 
+  newCourse = new FormGroup({
+    title: new FormControl(null, [ Validators.required, Validators.maxLength(50) ]),
+    description: new FormControl(null, [ Validators.required, Validators.maxLength(500) ]),
+    length: new FormControl(0, [ Validators.required, Validators.max(600)] ),
+    date: new FormControl(null, [ Validators.required ])
+  });
+
   onGetDate(dateValue: string): void {
     this.course.date = parseInt(dateValue, 10);
   }
@@ -26,16 +34,7 @@ export class AddCourseComponent implements OnInit {
 
   constructor(public router: Router, private store: Store<fromRoot.State>) { }
 
-  ngOnInit() {
-    this.course = {
-      name: '',
-      description: '',
-      date: 0,
-      length: 0,
-      authors: '',
-      isTopRated: false,
-    };
-  }
+  ngOnInit() {}
 
   handleCancel() {
     console.log('---Add course. Cancel triggered');
